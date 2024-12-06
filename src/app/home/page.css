@@ -1,0 +1,24 @@
+header {
+    margin-top: 10vh
+}
+
+.selected_group {
+    height: 70vh;
+    width: 100vw;
+    background-color: rgb(228, 228, 228);
+}
+
+.text_selected_group {
+    color: red;
+    align-items: center;
+    display: flex;
+    height: 5vw;
+    margin-left: 30vw;
+}
+
+.slider {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 50vh;
+}

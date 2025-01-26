@@ -1,24 +1,33 @@
 header {
-    margin-top: 10vh
+/*    margin-top: 10vh;*/
+    margin-top: 80px;
 }
 
 .selected_group {
-    height: 70vh;
+/*    height: 70vh;*/
     width: 100vw;
     background-color: rgb(228, 228, 228);
 }
 
 .text_selected_group {
-    color: red;
+/*    color: red;*/
     align-items: center;
     display: flex;
+/*
     height: 5vw;
     margin-left: 30vw;
+*/
+/*    以下追加*/
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0.6em 0;
+    margin-left: 1.6em;
 }
 
 .slider {
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 50vh;
+/*    height: 50vh;*/
 }

@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 
 export default function Home() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('http://localhost:8080/api');
@@ -24,7 +24,7 @@ export default function Home() {
       </header>
       <body>
         <div className="selected_group">
-          <h1 className="text_selected_group">注目のサークル{data}</h1>
+          <h1 className="text_selected_group">注目のサークル{data.value}</h1>
           <div className='slider'>
             <PictureList />
           </div>

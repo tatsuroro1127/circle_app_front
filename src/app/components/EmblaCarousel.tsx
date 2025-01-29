@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import Autoplay from 'embla-carousel-autoplay'
@@ -10,6 +10,20 @@ type PropType = {
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true);
+            const response = await fetch('http://localhost:8080/topCircles');
+            const json = await response.json();
+            setData(json);
+            setIsLoading(false);
+        };
+        fetchData();
+    }, []);
+
+
     const { slides, options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()])
 
@@ -36,7 +50,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 <div className="embla__container">
                     {slides.map((index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">テスト{index + 1}</div>
+                            <div className="embla__slide__Area">
+                                {isLoading ? "loading..." : <>{data[index].name}</>}
+                                <div>test</div>
+                            </div>
                         </div>
                     ))}
                 </div>
